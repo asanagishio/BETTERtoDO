@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="(Xi-Ran) Wei Ran" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" , content="index, follow" />
+    <meta name="rating" content="General" />
+    <meta
+      name="description"
+      content="A to-do list but much better with lists function to seperate workflows"
+    />
+    <title>BETTER toDO</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./font-awesome/css/all.min.css" />
+    <script defer src="./app.js"></script>
+  </head>
+
+  <body>
+    <div class="title">BETTER toDO</div>
+
+    <!-- Left portion list -->
+    <div class="all-tasks">
+      <h2 class="task-list-title">My Lists</h2>
+      <ul class="task-list" data-lists></ul>
+      <!-- Create new list -->
+      <form action="" data-new-list-form>
+        <input
+          type="text"
+          class="new list"
+          placeholder="new list name"
+          aria-label="new list name"
+          data-new-list-input
+        />
+        <button class="btn create" aria-label="create new list">+</button>
+      </form>
+    </div>
+
+    <!-- Right portion list -->
+    <div class="todo-list" data-list-display-container>
+      <div class="todo-header">
+        <h2 class="todo-title" data-list-title></h2>
+        <p class="task-count" data-list-count></p>
+      </div>
+
+      <div class="todo-body">
+        <div class="tasks" data-tasks></div>
+        <!-- Enter new task -->
+        <div class="new-task-creator">
+          <form action="" data-new-task-form>
+            <input
+              type="text"
+              class="new task"
+              placeholder="new task name"
+              aria-label="new task name"
+              data-new-task-input
+            />
+            <button class="btn create" aria-label="create new task">+</button>
+          </form>
+        </div>
+        <!-- Delete button -->
+        <div class="delete-stuff">
+          <button class="btn delete" data-clear-complete-tasks-button>
+            Clear completed tasks
+          </button>
+          <button class="btn delete" data-delete-list-button>
+            Delete list
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <h2 class="footer-title">BETTER toDO</h2>
+      <p>contact me for supports:</p>
+      <div class="social-icons">
+        <a href="https://github.com/asanagishio" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.instagram.com/__.xiran.__/" target="_blank"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a href="#"><i class="fab fa-facebook-messenger"></i></a>
+        <a href="mailto:07360931@me.mcu.edu.tw"><i class="fas fa-at"></i></a>
+      </div>
+    </footer>
+    <!-- generic task template for js-->
+    <template id="task-template">
+      <div class="task">
+        <input type="checkbox" />
+        <label>
+          <span class="custom-checkbox"></span>
+        </label>
+        <button class="btn delete-task">
+          <i class="fas fa-trash"></i>
+        </button>
+      </div>
+    </template>
+  </body>
+</html>

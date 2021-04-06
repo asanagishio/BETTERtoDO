@@ -1,0 +1,410 @@
+:root {
+  --clr-primary: rgb(83, 173, 105);
+  --clr-light: #f4f4f4;
+  --clr-dark: #333;
+  --clr-warning: rgb(177, 44, 44);
+}
+
+*,
+*::before,
+*::after {
+  font-family: inherit;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+  background-color: var(--clr-primary);
+  color: var(--clr-light);
+  display: -ms-grid;
+  display: grid;
+  grid: "header header header header" auto "...... lists activated ......" auto "footer footer footer footer" auto/1fr minmax(100px, 300px) minmax(250px, 500px) 1fr;
+}
+
+.title {
+  grid-area: header;
+  text-align: center;
+  font-size: calc(7vw + 2rem);
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: rgba(0, 0, 0, 0.1);
+  margin: 1rem 0.5rem 2rem 0.5rem;
+}
+
+form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.btn {
+  cursor: pointer;
+  background: 0;
+  border: 0;
+  padding: 0;
+  color: inherit;
+}
+
+.btn.create {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-right: 0.5rem;
+  -webkit-transition: opacity 100ms ease-in;
+  transition: opacity 100ms ease-in;
+}
+
+.btn.create:hover {
+  opacity: 0.7;
+}
+
+.new {
+  background: 0;
+  border: 0;
+  color: inherit;
+  border-bottom: 1px solid currentColor;
+  font-size: inherit;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  outline: none;
+  -webkit-transition: border-bottom 100ms ease-in;
+  transition: border-bottom 100ms ease-in;
+}
+
+.new::-webkit-input-placeholder {
+  opacity: 0.3;
+}
+
+.new:-ms-input-placeholder {
+  opacity: 0.3;
+}
+
+.new::-ms-input-placeholder {
+  opacity: 0.3;
+}
+
+.new::placeholder {
+  opacity: 0.3;
+}
+
+.new:focus {
+  border-bottom-width: 2.5px;
+}
+
+.new:focus::-webkit-input-placeholder {
+  opacity: 0.1;
+}
+
+.new:focus:-ms-input-placeholder {
+  opacity: 0.1;
+}
+
+.new:focus::-ms-input-placeholder {
+  opacity: 0.1;
+}
+
+.new:focus::placeholder {
+  opacity: 0.1;
+}
+
+.new.list {
+  font-size: 1.1rem;
+}
+
+.all-tasks {
+  grid-area: lists;
+}
+
+.task-list {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  list-style: circle;
+  padding-left: 1.1rem;
+}
+
+.active-list {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.list-name {
+  cursor: pointer;
+}
+
+.list-name:hover {
+  opacity: 0.7;
+}
+
+.todo-list {
+  --spacer: 2rem;
+  grid-area: activated;
+  background: var(--clr-light);
+  color: var(--clr-dark);
+  border-radius: 1rem;
+  -webkit-box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.todo-header {
+  padding: var(--spacer);
+  background: #e4e4e4;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.todo-title {
+  margin: 0 2rem 0 0;
+}
+
+.task-count {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.todo-body {
+  padding: var(--spacer);
+  position: relative;
+}
+
+[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+}
+
+.task {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.task::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: -0.5rem;
+  height: 1px;
+  background-color: currentColor;
+  opacity: 0.2;
+}
+
+.task label {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.task label::after {
+  content: "";
+  position: absolute;
+  left: 1.5rem;
+  right: 0;
+  top: calc(50% - 1px);
+  height: 2px;
+  background: currentColor;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-transition: -webkit-transform 200ms ease-in-out;
+  transition: -webkit-transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+}
+
+.btn.delete-task {
+  position: absolute;
+  right: 0;
+  padding: 0.5rem 0.6rem;
+  border-radius: 50%;
+  background: var(--clr-warning);
+  text-align: center;
+  opacity: 0.5;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  -webkit-transition: all 100ms ease-in-out;
+  transition: all 100ms ease-in-out;
+}
+
+.btn.delete-task:hover {
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.btn.delete-task i {
+  pointer-events: none;
+  color: var(--clr-light);
+}
+
+.custom-checkbox {
+  --size: 0.75rem;
+  display: inline-block;
+  width: var(--size);
+  height: var(--size);
+  margin-right: var(--size);
+  cursor: pointer;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: -webkit-transform 200ms ease-in-out;
+  transition: -webkit-transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+}
+
+.task:hover .custom-checkbox,
+[type="checkbox"]:focus + label .custom-checkbox {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  color: var(--clr-primary);
+}
+
+[type="checkbox"]:checked + label .custom-checkbox {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  background: var(--clr-primary);
+  border-color: var(--clr-primary);
+  -webkit-box-shadow: inset 0 0 0px 1.5px white;
+          box-shadow: inset 0 0 0px 1.5px white;
+}
+
+[type="checkbox"]:checked + label {
+  opacity: 0.5;
+}
+
+[type="checkbox"]:checked + label::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.new.task {
+  margin-bottom: 0;
+}
+
+.new-task-creator .create {
+  color: var(--clr-primary);
+}
+
+.delete-stuff {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: -30px;
+  color: var(--clr-light);
+}
+
+.btn.delete {
+  font-size: 1rem;
+  opacity: 0.7;
+  -webkit-transform: color 200ms;
+          transform: color 200ms;
+}
+
+.btn.delete:hover {
+  opacity: 1;
+  text-shadow: 0 0 10px white;
+  color: var(--clr-warning);
+}
+
+footer {
+  grid-area: footer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 30%;
+  margin-bottom: 1.5rem;
+}
+
+footer .footer-title {
+  margin: 0 1rem 0 1rem;
+  opacity: 0.5;
+}
+
+footer p {
+  margin-top: 0;
+  font-size: 1rem;
+  opacity: 0.5;
+}
+
+footer .social-icons {
+  width: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+footer .social-icons a i {
+  color: var(--clr-light);
+  opacity: 0.5;
+}
+
+footer .social-icons a i:hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 855px) {
+  body {
+    display: -ms-grid;
+    display: grid;
+    grid: "header header  header" auto "......  lists   ......" "...... activated ......" auto "footer footer footer" auto / 1fr 3fr 1fr;
+  }
+  .title {
+    margin-bottom: 1rem;
+  }
+  .todo-list {
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .task label {
+    font-size: 1rem;
+  }
+  .new-task-creator input {
+    font-size: 1.25rem;
+  }
+  footer .social-icons {
+    width: 50%;
+  }
+}
+/*# sourceMappingURL=style.css.map */
